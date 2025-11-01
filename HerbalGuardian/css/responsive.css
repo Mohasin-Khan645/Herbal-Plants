@@ -1,0 +1,9 @@
+/* css/responsive.css */
+@media (max-width: 768px) {
+    .plant-grid { display: grid; grid-template-columns: 1fr; }
+    nav.navbar .navbar-collapse { text-align: center; }
+    .chat-body { height: 50vh; }
+  }
+  @media (min-width: 769px) {
+    .plant-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  }
