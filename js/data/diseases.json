@@ -1,0 +1,23 @@
+
+[
+    {
+      "name": "Powdery Mildew",
+      "symptoms": "White powdery coating on leaves and stems.",
+      "treatment": "Apply neem oil or sulfur spray; remove infected parts."
+    },
+    {
+      "name": "Leaf Spot",
+      "symptoms": "Brown or black circular spots, often with yellow halo.",
+      "treatment": "Remove affected leaves; improve air circulation; use neem oil."
+    },
+    {
+      "name": "Rust",
+      "symptoms": "Orange-brown pustules on underside of leaves.",
+      "treatment": "Prune affected leaves; copper fungicide as needed."
+    },
+    {
+      "name": "Blight",
+      "symptoms": "Sudden wilting and browning of foliage.",
+      "treatment": "Prune, dispose of debris; use appropriate fungicide."
+    }
+  ]
