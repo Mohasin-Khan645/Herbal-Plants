@@ -107,9 +107,3 @@ Frontend (static) and backend (Node) need different hosting concerns:
 
 - Frontend → Backend URL:
   - If deploying separately, ensure the frontend JS calls the deployed API base URL (or proxy via the host). By default, the app expects same-origin (`/api/...`).
-
-## License
-- MIT (adjust if different).
-
-
-
