@@ -6,7 +6,7 @@
     "type": "Medicinal",
     "benefits": "Anti-inflammatory, antioxidant, supports joint health and immunity.",
     "care": "Partial to full sun, well-draining soil, regular watering.",
-    "image": "HerbalGuardian/images/turmeric.png"
+    "image": "HerbalGuardian/images/Turmeric.png"
   },
   {
     "id": 12,
@@ -22,7 +22,7 @@
     "type": "Edible",
     "benefits": "Rich in antioxidants, aids digestion, supports hair health.",
     "care": "Full sun, well-draining soil, moderate watering.",
-    "image": "HerbalGuardian/images/curry leaves.png"
+    "image": "HerbalGuardian/images/Curry leaves.png"
   },
   {
     "id": 14,
