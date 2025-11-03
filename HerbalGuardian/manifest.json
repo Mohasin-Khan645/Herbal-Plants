@@ -1,0 +1,12 @@
+{
+  "name": "Herbal Guardian – Smart Herbal Plant Awareness",
+  "short_name": "HerbalGuardian",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2e7d32",
+  "icons": [
+    { "src": "HerbalGuardian/images/logo.png", "sizes": "192x192", "type": "image/png" }
+  ]
+}
+
