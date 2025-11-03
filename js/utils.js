@@ -4,7 +4,9 @@ const HG_STORAGE_KEYS = {
   chat: 'hg_chat_history'
 };
 
+// --------------------
 // Helper functions
+// --------------------
 function qs(sel, el = document) { return el.querySelector(sel); }
 function qsa(sel, el = document) { return [...el.querySelectorAll(sel)]; }
 function byId(id) { return document.getElementById(id); }
@@ -15,7 +17,9 @@ function setYear() {
 }
 setYear();
 
+// --------------------
 // Reveal animations
+// --------------------
 (function observeReveal() {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -26,7 +30,9 @@ setYear();
   qsa('.feature-card').forEach(el => obs.observe(el));
 })();
 
+// --------------------
 // Counter animation
+// --------------------
 function animateCounters() {
   qsa('[data-count]').forEach(el => {
     const target = parseInt(el.getAttribute('data-count'), 10) || 0;
@@ -43,8 +49,9 @@ function animateCounters() {
   });
 }
 
-
+// --------------------
 // LocalStorage helpers
+// --------------------
 function getFavorites() {
   try {
     return JSON.parse(localStorage.getItem(HG_STORAGE_KEYS.favorites) || '[]');
@@ -56,16 +63,22 @@ function setFavorites(list) {
   localStorage.setItem(HG_STORAGE_KEYS.favorites, JSON.stringify(list));
 }
 
-//  Gemini API helper via Node.js proxy
+// --------------------
+// ✅ Gemini API helper via Node.js proxy
+// --------------------
 async function geminiText(prompt) {
   if (!prompt?.trim()) return '';
 
   try {
-    //  Use relative path to your local Node server
+    // ✅ Select API base: relative for localhost, full URL for GitHub Pages
     const url = new URL(window.location.href);
     let urlModel = url.searchParams.get('model');
     if (urlModel && urlModel.startsWith('models/')) urlModel = urlModel.replace(/^models\//, '');
-    const res = await fetch('/api/gemini', {
+    const apiOverride = url.searchParams.get('api');
+    const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+    const apiBase = isLocal ? '' : (apiOverride || (window.HG_API_BASE || 'https://YOUR-API-DOMAIN'));
+    const endpoint = apiBase + '/api/gemini';
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt, model: urlModel || undefined })
@@ -88,7 +101,9 @@ async function geminiText(prompt) {
   }
 }
 
+// --------------------
 // Voice input
+// --------------------
 function setupVoiceInput(inputEl, btnEl, onResult) {
   const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
