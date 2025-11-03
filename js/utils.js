@@ -145,6 +145,6 @@ function setupVoiceInput(inputEl, btnEl, onResult) {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     const ver = Date.now().toString(36);
-    navigator.serviceWorker.register('service-worker.js?v=' + ver).catch(() => { });
+    navigator.serviceWorker.register('HerbalGuardian/service-worker.js?v=' + ver).catch(() => { });
   });
 }
