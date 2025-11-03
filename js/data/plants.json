@@ -1,0 +1,107 @@
+
+[
+  {
+    "id": 11,
+    "name": "Turmeric",
+    "type": "Medicinal",
+    "benefits": "Anti-inflammatory, antioxidant, supports joint health and immunity.",
+    "care": "Partial to full sun, well-draining soil, regular watering.",
+    "image": "HerbalGuardian/images/turmeric.png"
+  },
+  {
+    "id": 12,
+    "name": "Ginger",
+    "type": "Medicinal",
+    "benefits": "Aids digestion, reduces nausea, anti-inflammatory properties.",
+    "care": "Partial shade, rich soil, consistent moisture.",
+    "image": "HerbalGuardian/images/ginger.png"
+  },
+  {
+    "id": 13,
+    "name": "Curry Leaves",
+    "type": "Edible",
+    "benefits": "Rich in antioxidants, aids digestion, supports hair health.",
+    "care": "Full sun, well-draining soil, moderate watering.",
+    "image": "HerbalGuardian/images/curry leaves.png"
+  },
+  {
+    "id": 14,
+    "name": "Chamomile",
+    "type": "Medicinal",
+    "benefits": "Promotes sleep, calming properties, aids digestion.",
+    "care": "Full sun, well-draining soil, moderate watering.",
+    "image": "HerbalGuardian/images/chamomile.png"
+  },
+  {
+    "id": 1,
+    "name": "Tulsi",
+    "type": "Medicinal",
+    "benefits": "Boosts immunity, reduces stress, helps cough and cold.",
+    "care": "Requires 4-6 hours of sunlight, moderate watering, well-drained soil.",
+    "image": "HerbalGuardian/images/tulsi.png"
+  },
+  {
+    "id": 2,
+    "name": "Neem",
+    "type": "Medicinal",
+    "benefits": "Natural antiseptic, purifies blood, pest repellent.",
+    "care": "Grows in dry climate, minimal watering once established.",
+    "image": "HerbalGuardian/images/neem.png"
+  },
+  {
+    "id": 3,
+    "name": "Aloe Vera",
+    "type": "Cosmetic",
+    "benefits": "Soothes skin, aids wound healing, digestive support.",
+    "care": "Bright indirect light, water sparingly.",
+    "image": "HerbalGuardian/images/Aloe Vera.png"
+  },
+  {
+    "id": 4,
+    "name": "Mint",
+    "type": "Edible",
+    "benefits": "Aids digestion, fresh aroma, culinary herb.",
+    "care": "Partial shade, regular watering, can be invasive.",
+    "image": "HerbalGuardian/images/Mint.png"
+  },
+  {
+    "id": 5,
+    "name": "Lemongrass",
+    "type": "Edible",
+    "benefits": "Relieves stress, aromatic tea, anti-inflammatory.",
+    "care": "Full sun, moderate watering.",
+    "image": "HerbalGuardian/images/lemongrass.png"
+  },
+  {
+    "id": 7,
+    "name": "Ashwagandha",
+    "type": "Medicinal",
+    "benefits": "Stress reduction, supports sleep, vitality.",
+    "care": "Full sun, sandy soil, low to moderate water.",
+    "image": "HerbalGuardian/images/ashwagandha.png"
+  },
+  {
+    "id": 8,
+    "name": "Brahmi (Bacopa)",
+    "type": "Medicinal",
+    "benefits": "Supports memory and focus, calming herb.",
+    "care": "Partial sun, moist soil, regular watering.",
+    "image": "HerbalGuardian/images/brahmi.png"
+  },
+  {
+    "id": 9,
+    "name": "Giloy (Guduchi)",
+    "type": "Medicinal",
+    "benefits": "Immunity support, anti-pyretic, detoxifying.",
+    "care": "Climbing vine, full to partial sun, moderate water.",
+    "image": "HerbalGuardian/images/giloy.png"
+  },
+  {
+    "id": 10,
+    "name": "Moringa (Drumstick)",
+    "type": "Edible",
+    "benefits": "Nutrient-dense leaves, anti-oxidant, supports energy.",
+    "care": "Full sun, drought tolerant once established.",
+    "image": "HerbalGuardian/images/moringa.png"
+  }
+]
