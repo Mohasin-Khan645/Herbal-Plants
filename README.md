@@ -108,14 +108,8 @@ Frontend (static) and backend (Node) need different hosting concerns:
 - Frontend → Backend URL:
   - If deploying separately, ensure the frontend JS calls the deployed API base URL (or proxy via the host). By default, the app expects same-origin (`/api/...`).
 
-## After renaming `backend` → `api`
-- Start command updated to `node api/server.js` inside `HerbalGuardian/`.
-- If you use CI/CD or a deploy platform, update any paths that referenced `HerbalGuardian/backend` to `HerbalGuardian/api`.
-
-## Contributing
-- PRs welcome. Keep code readable and avoid leaking secrets.
-
 ## License
 - MIT (adjust if different).
+
 
 
