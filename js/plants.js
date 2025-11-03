@@ -5,7 +5,7 @@ let compareSelection = new Set();
 let showingFavorites = false;
 
 async function loadPlants(){
-  const res = await fetch('/js/data/plants.json');
+  const res = await fetch('js/data/plants.json');
   PLANTS = await res.json();
 }
 
