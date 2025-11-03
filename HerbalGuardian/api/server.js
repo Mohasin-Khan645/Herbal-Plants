@@ -206,7 +206,6 @@ app.post("/api/gemini", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 // 🔎 List available models
 app.get("/api/gemini/models", async (req, res) => {
   if (!GEMINI_API_KEY) return res.status(500).json({ error: "Missing GEMINI_API_KEY." });
