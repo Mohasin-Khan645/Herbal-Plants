@@ -2,10 +2,10 @@
   "name": "herbalguardian",
   "version": "1.0.0",
   "description": "Herbal Guardian web app with Gemini AI chatbot",
-  "main": "server.js",
+  "main": "api/server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node api/server.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
