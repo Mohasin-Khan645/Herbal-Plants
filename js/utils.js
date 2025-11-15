@@ -3,10 +3,8 @@ const HG_STORAGE_KEYS = {
   favorites: 'hg_favorites',
   chat: 'hg_chat_history'
 };
-
-// --------------------
+-
 // Helper functions
-// --------------------
 function qs(sel, el = document) { return el.querySelector(sel); }
 function qsa(sel, el = document) { return [...el.querySelectorAll(sel)]; }
 function byId(id) { return document.getElementById(id); }
@@ -17,9 +15,7 @@ function setYear() {
 }
 setYear();
 
-// --------------------
 // Reveal animations
-// --------------------
 (function observeReveal() {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -30,9 +26,7 @@ setYear();
   qsa('.feature-card').forEach(el => obs.observe(el));
 })();
 
-// --------------------
 // Counter animation
-// --------------------
 function animateCounters() {
   qsa('[data-count]').forEach(el => {
     const target = parseInt(el.getAttribute('data-count'), 10) || 0;
@@ -49,9 +43,7 @@ function animateCounters() {
   });
 }
 
-// --------------------
 // LocalStorage helpers
-// --------------------
 function getFavorites() {
   try {
     return JSON.parse(localStorage.getItem(HG_STORAGE_KEYS.favorites) || '[]');
@@ -63,12 +55,7 @@ function setFavorites(list) {
   localStorage.setItem(HG_STORAGE_KEYS.favorites, JSON.stringify(list));
 }
 
-// --------------------
 // ✅ Gemini API helper - supports both backend proxy and direct client calls
-// --------------------
-// Set your Gemini API key here for GitHub Pages deployment
-// ⚠️ WARNING: This exposes your API key in the client-side code
-// For production, use a backend server instead
 const GEMINI_API_KEY = window.HG_GEMINI_API_KEY || '';
 
 async function geminiText(prompt) {
@@ -154,9 +141,7 @@ async function geminiText(prompt) {
   }
 }
 
-// --------------------
 // Voice input
-// --------------------
 function setupVoiceInput(inputEl, btnEl, onResult) {
   const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -202,3 +187,4 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('HerbalGuardian/service-worker.js?v=' + ver).catch(() => { });
   });
 }
+
