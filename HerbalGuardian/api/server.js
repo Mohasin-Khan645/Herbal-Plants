@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const MODEL = process.env.GEMINI_MODEL || "gemini-1.5-flash-latest";
+const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
 // Fix __dirname
 const __filename = fileURLToPath(import.meta.url);
