@@ -113,7 +113,7 @@ async function geminiText(prompt) {
       }
     }
     
-    const model = urlModel || 'gemini-1.5-flash-latest';
+    const model = urlModel || 'gemini-2.5-flash';
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
     
     const res = await fetch(apiUrl, {
@@ -187,4 +187,5 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('HerbalGuardian/service-worker.js?v=' + ver).catch(() => { });
   });
 }
+
 
