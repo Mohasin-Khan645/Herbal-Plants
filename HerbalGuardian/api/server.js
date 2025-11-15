@@ -116,16 +116,13 @@ app.post("/api/gemini", async (req, res) => {
       withoutLatest,
       // Add available models first (highest priority)
       ...availableGeminiModels,
-      // Then common fallback model name variations
-      'gemini-1.5-flash-001',
-      'gemini-1.5-flash',
-      'gemini-1.5-flash-latest',
-      'gemini-1.5-flash-8b',
-      'gemini-1.5-pro-001',
-      'gemini-1.5-pro',
-      'gemini-1.5-pro-latest',
-      'gemini-pro',
-      'gemini-pro-vision'
+     // Modern fallback models only
+    'gemini-flash-latest',
+    'gemini-pro-latest',
+    'gemini-2.5-flash',
+    'gemini-2.5-pro',
+    'gemini-2.0-flash',
+    'gemini-2.0-pro-exp'
     ])).filter(Boolean);
 
     // Filter to prioritize valid candidates, but keep fallbacks if needed
