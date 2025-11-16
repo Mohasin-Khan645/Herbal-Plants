@@ -8,13 +8,104 @@ async function loadSimilar(){
   } catch { SIMILAR = []; }
 }
 
-function predictByFilename(name){
-  const n = name.toLowerCase();
-  if (n.includes('brown') || n.includes('spot')) return { disease:'Leaf Spot', confidence:0.78 };
-  if (n.includes('powder') || n.includes('mildew')) return { disease:'Powdery Mildew', confidence:0.82 };
-  if (n.includes('rust')) return { disease:'Rust', confidence:0.74 };
-  if (n.includes('blight')) return { disease:'Blight', confidence:0.69 };
-  return { disease:'Nutrient Deficiency (suspected)', confidence:0.55 };
+async function analyzeImageWithAI(file) {
+  // Convert image to base64
+  const base64 = await new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.readAsDataURL(file);
+  });
+
+  const prompt = `First, determine if this image shows a plant leaf. If it does not appear to be a plant leaf (e.g., it's a person, object, or non-plant image), respond with: {"is_plant": false, "message": "This does not appear to be a plant leaf image. Please upload an image of a plant leaf for disease analysis."}
+
+If it is a plant leaf, analyze it for diseases and provide:
+1. The most likely disease or condition (1-2 words)
+2. Confidence level (0-1)
+3. Brief symptoms (1 sentence, max 20 words)
+4. Treatment (1 sentence, max 20 words, herbal/natural methods)
+5. Prevention (1 sentence, max 15 words)
+
+Respond in JSON format: {"is_plant": true, "disease": "Disease Name", "confidence": 0.85, "symptoms": "brief description", "treatment": "brief advice", "prevention": "brief tips"}`;
+
+  try {
+    const apiKey = window.HG_GEMINI_API_KEY || '';
+    if (!apiKey) {
+      return { disease: 'API Key Not Configured', confidence: 0, symptoms: 'Please configure Gemini API key', treatment: 'N/A', prevention: 'N/A' };
+    }
+
+    const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+
+    const res = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [
+            { text: prompt },
+            {
+              inlineData: {
+                mimeType: file.type,
+                data: base64
+              }
+            }
+          ]
+        }]
+      })
+    });
+
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData?.error?.message || `${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
+
+    // Try to parse JSON response
+    try {
+      const result = JSON.parse(reply);
+      if (result.is_plant === false) {
+        return {
+          disease: 'Invalid Image',
+          confidence: 0,
+          symptoms: result.message || 'This does not appear to be a plant leaf image. Please upload an image of a plant leaf for disease analysis.',
+          treatment: 'N/A',
+          prevention: 'N/A'
+        };
+      }
+      return {
+        disease: result.disease || 'Unable to identify',
+        confidence: result.confidence || 0.5,
+        symptoms: result.symptoms || 'Analysis incomplete',
+        treatment: result.treatment || 'Consult expert',
+        prevention: result.prevention || 'Maintain plant health'
+      };
+    } catch (parseError) {
+      // If JSON parsing fails, check if it's a non-plant message
+      if (reply.includes('does not appear to be a plant leaf') || reply.includes('is_plant') && reply.includes('false')) {
+        return {
+          disease: 'Invalid Image',
+          confidence: 0,
+          symptoms: 'This does not appear to be a plant leaf image. Please upload an image of a plant leaf for disease analysis.',
+          treatment: 'N/A',
+          prevention: 'N/A'
+        };
+      }
+      // If JSON parsing fails, extract info from text
+      return {
+        disease: reply.includes('Leaf Spot') ? 'Leaf Spot' :
+                reply.includes('Powdery Mildew') ? 'Powdery Mildew' :
+                reply.includes('Rust') ? 'Rust' :
+                reply.includes('Blight') ? 'Blight' : 'Unknown Condition',
+        confidence: 0.6,
+        symptoms: reply,
+        treatment: 'See AI response below',
+        prevention: 'General plant care'
+      };
+    }
+  } catch (e) {
+    return { disease: 'Analysis Failed', confidence: 0, symptoms: e.message, treatment: 'Try again or consult expert', prevention: 'N/A' };
+  }
 }
 
 function renderSimilar(list){
@@ -43,38 +134,41 @@ async function analyze(){
   // preview
   const prev = document.getElementById('imagePreview');
   prev.innerHTML = '';
-  const img = document.createElement('img'); img.src = URL.createObjectURL(file); img.onload = ()=> URL.revokeObjectURL(img.src);
+  const img = document.createElement('img');
+  img.src = URL.createObjectURL(file);
+  img.style.maxWidth = '300px';
+  img.style.maxHeight = '300px';
+  img.onload = () => URL.revokeObjectURL(img.src);
   prev.appendChild(img);
 
-  // simulate prediction by filename
-  const pred = predictByFilename(file.name);
+  // Show loading
+  out.innerHTML = '<div class="text-center"><div class="spinner-border" role="status"></div><br>Analyzing image with AI...</div>';
 
-  // basic guidance
-  const guidance = {
-    'Leaf Spot': { treat:'Remove affected leaves, apply neem oil weekly.', prevent:'Avoid overhead watering; improve airflow.' },
-    'Powdery Mildew': { treat:'Spray baking soda mix or sulfur-based fungicide.', prevent:'Water in morning; reduce humidity.' },
-    'Rust': { treat:'Remove infected leaves; use copper fungicide.', prevent:'Keep leaves dry; rotate crops.' },
-    'Blight': { treat:'Prune aggressively; apply appropriate fungicide.', prevent:'Sanitize tools; avoid dense planting.' },
-    'Nutrient Deficiency (suspected)': { treat:'Use balanced fertilizer; test soil.', prevent:'Maintain soil health and pH.' }
-  }[pred.disease];
+  // Analyze with AI
+  const pred = await analyzeImageWithAI(file);
 
   out.innerHTML = `
     <div><strong>Probable Disease:</strong> ${pred.disease}</div>
     <div><strong>Confidence:</strong> ${(pred.confidence*100).toFixed(0)}%</div>
-    <div class="mt-2"><strong>Treatment:</strong> ${guidance?.treat || 'Consult local extension services.'}</div>
-    <div><strong>Prevention:</strong> ${guidance?.prevent || 'Ensure proper watering, sunlight, and spacing.'}</div>
+    <div class="mt-2"><strong>Symptoms:</strong> ${pred.symptoms}</div>
+    <div class="mt-2"><strong>Treatment:</strong> ${pred.treatment}</div>
+    <div><strong>Prevention:</strong> ${pred.prevention}</div>
   `;
 
-  // similar diseases
-  const matches = SIMILAR.filter(d => d.name.toLowerCase().includes(pred.disease.split(' ')[0].toLowerCase()));
-  renderSimilar(matches.length?matches:SIMILAR);
+  // similar diseases - only show if it's a valid plant disease
+  if (pred.disease !== 'Invalid Image' && pred.disease !== 'Analysis Failed') {
+    const matches = SIMILAR.filter(d => d.name.toLowerCase().includes(pred.disease.split(' ')[0].toLowerCase()));
+    renderSimilar(matches.length ? matches : SIMILAR);
+  } else {
+    renderSimilar([]); // Clear similar diseases for invalid images
+  }
 
   // enable ask AI
   askBtn.disabled = false;
   askBtn.onclick = async ()=>{
     askBtn.disabled = true;
-    const txt = await geminiText(`Analyze a plant leaf with signs of "${pred.disease}" (confidence ${(pred.confidence*100).toFixed(0)}%). Provide concise treatment and prevention using herbal-friendly remedies.`);
-    out.innerHTML += `<div class="mt-3 p-2 border rounded bg-white"><strong>AI Advice:</strong><br>${txt}</div>`;
+    const txt = await geminiText(`Give brief additional treatment options for "${pred.disease}" in plants. Focus on 2-3 herbal remedies. Keep response under 100 words.`);
+    out.innerHTML += `<div class="mt-3 p-2 border rounded bg-white"><strong>AI Additional Advice:</strong><br>${txt}</div>`;
     askBtn.disabled = false;
   };
 }
