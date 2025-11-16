@@ -18,8 +18,8 @@ async function analyzeImageWithAI(file) {
 
   const prompt = `First, determine if this image shows a plant leaf. If it does not appear to be a plant leaf (e.g., it's a person, object, or non-plant image), respond with: {"is_plant": false, "message": "This does not appear to be a plant leaf image. Please upload an image of a plant leaf for disease analysis."}
 
-If it is a plant leaf, analyze it for diseases and provide:
-1. The most likely disease or condition (1-2 words)
+If it is a plant leaf, analyze it for diseases and ALWAYS provide the most likely disease or condition, even if uncertain:
+1. The most likely disease or condition (1-2 words, always provide one)
 2. Confidence level (0-1)
 3. Brief symptoms (1 sentence, max 20 words)
 4. Treatment (1 sentence, max 20 words, herbal/natural methods)
@@ -154,6 +154,7 @@ async function analyze(){
     <div class="mt-2"><strong>Treatment:</strong> ${pred.treatment}</div>
     <div><strong>Prevention:</strong> ${pred.prevention}</div>
   `;
+
   // similar diseases - only show if it's a valid plant disease
   if (pred.disease !== 'Invalid Image' && pred.disease !== 'Analysis Failed') {
     const matches = SIMILAR.filter(d => d.name.toLowerCase().includes(pred.disease.split(' ')[0].toLowerCase()));
