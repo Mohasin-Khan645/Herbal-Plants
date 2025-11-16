@@ -91,6 +91,21 @@ function openPlantModal(id){
   document.getElementById('plantModalImg').alt = p.name;
   document.getElementById('plantBenefits').textContent = 'Benefits: ' + p.benefits;
   document.getElementById('plantCare').textContent = 'Care: ' + p.care;
+
+  const medicinesDiv = document.getElementById('plantMedicines');
+  if (p.medicines && p.medicines.length > 0) {
+    medicinesDiv.innerHTML = '<h6 class="fw-bold">Medicines/Recipes:</h6>' +
+      p.medicines.map(m => `
+        <div class="border rounded p-2 mb-2">
+          <strong>${m.type}:</strong> ${m.ingredients}<br>
+          <em>${m.instructions}</em><br>
+          <small><strong>Used for:</strong> ${m.diseases}</small>
+        </div>
+      `).join('');
+  } else {
+    medicinesDiv.innerHTML = '<p class="text-muted">No medicines/recipes available for this plant.</p>';
+  }
+
   const ask = document.getElementById('askInChat');
   ask.href = 'chatbot.html?prefill=' + encodeURIComponent(`What are the benefits and care tips for ${p.name}?`);
 
