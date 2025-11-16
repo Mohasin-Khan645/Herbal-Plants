@@ -6,7 +6,33 @@
     "type": "Medicinal",
     "benefits": "Anti-inflammatory, antioxidant, supports joint health and immunity.",
     "care": "Partial to full sun, well-draining soil, regular watering.",
-    "image": "HerbalGuardian/images/Turmeric.png"
+    "image": "HerbalGuardian/images/Turmeric.png",
+    "medicines": [
+      {
+        "type": "Tea",
+        "ingredients": "1 tsp turmeric powder, 1 cup water, honey (optional)",
+        "instructions": "Boil water, add turmeric, simmer for 5-10 minutes. Strain and drink warm. Helps with inflammation and immunity.",
+        "diseases": "Arthritis, Inflammation, Immune deficiency"
+      },
+      {
+        "type": "Golden Milk Paste",
+        "ingredients": "1/4 cup turmeric powder, 1/2 tsp black pepper, 1/2 cup water",
+        "instructions": "Mix into a paste, store in fridge. Add to warm milk for a soothing drink. Enhances absorption and reduces joint pain.",
+        "diseases": "Joint pain, Arthritis, Digestive issues"
+      },
+      {
+        "type": "Paste for Wounds",
+        "ingredients": "Turmeric powder, water or coconut oil",
+        "instructions": "Mix into paste, apply to wounds, cover with bandage. Change daily. Promotes healing and prevents infection.",
+        "diseases": "Wounds, Cuts, Skin infections"
+      },
+      {
+        "type": "Turmeric Milk",
+        "ingredients": "1 tsp turmeric, 1 cup milk, pinch of cinnamon",
+        "instructions": "Heat milk, add turmeric and cinnamon, stir well. Drink warm before bed. Aids sleep and reduces stress.",
+        "diseases": "Insomnia, Stress, Anxiety"
+      }
+    ]
   },
   {
     "id": 12,
@@ -14,7 +40,33 @@
     "type": "Medicinal",
     "benefits": "Aids digestion, reduces nausea, anti-inflammatory properties.",
     "care": "Partial shade, rich soil, consistent moisture.",
-    "image": "HerbalGuardian/images/ginger.png"
+    "image": "HerbalGuardian/images/ginger.png",
+    "medicines": [
+      {
+        "type": "Tea",
+        "ingredients": "1-2 slices fresh ginger, 1 cup water, lemon and honey (optional)",
+        "instructions": "Boil water with ginger for 5-10 minutes. Strain and drink warm. Soothes digestion and nausea.",
+        "diseases": "Nausea, Motion sickness, Indigestion"
+      },
+      {
+        "type": "Tincture",
+        "ingredients": "Fresh ginger root, vodka or glycerin",
+        "instructions": "Chop ginger, fill a jar, cover with alcohol. Steep for 4-6 weeks, strain. Take 1-2 tsp daily for anti-inflammatory effects.",
+        "diseases": "Arthritis, Inflammation, Muscle pain"
+      },
+      {
+        "type": "Compress",
+        "ingredients": "Grated ginger, warm cloth",
+        "instructions": "Wrap grated ginger in cloth, apply to sore muscles for 15-20 minutes. Relieves pain and reduces swelling.",
+        "diseases": "Muscle soreness, Sprains, Joint pain"
+      },
+      {
+        "type": "Ginger Honey",
+        "ingredients": "Fresh ginger slices, honey",
+        "instructions": "Layer ginger in jar, cover with honey. Let sit for 1 week. Take 1 tsp daily for immunity boost.",
+        "diseases": "Cold, Flu, Sore throat"
+      }
+    ]
   },
   {
     "id": 13,
@@ -22,7 +74,33 @@
     "type": "Edible",
     "benefits": "Rich in antioxidants, aids digestion, supports hair health.",
     "care": "Full sun, well-draining soil, moderate watering.",
-    "image": "HerbalGuardian/images/Curry leaves.png"
+    "image": "HerbalGuardian/images/Curry leaves.png",
+    "medicines": [
+      {
+        "type": "Hair Oil",
+        "ingredients": "Fresh curry leaves, coconut oil",
+        "instructions": "Heat oil with leaves until leaves darken. Cool, strain, and apply to scalp. Promotes hair growth and health.",
+        "diseases": "Hair loss, Dandruff, Premature graying"
+      },
+      {
+        "type": "Tea",
+        "ingredients": "10-15 curry leaves, 1 cup water",
+        "instructions": "Boil leaves in water for 5 minutes. Strain and drink. Aids digestion and reduces blood sugar.",
+        "diseases": "Diabetes, Indigestion, Constipation"
+      },
+      {
+        "type": "Powder Supplement",
+        "ingredients": "Dried curry leaves",
+        "instructions": "Grind dried leaves into powder. Take 1 tsp daily with water. Boosts iron levels and immunity.",
+        "diseases": "Anemia, Weak immunity, Vitamin deficiency"
+      },
+      {
+        "type": "Eye Wash",
+        "ingredients": "Curry leaves, water",
+        "instructions": "Boil leaves in water, cool, strain. Use as eye wash for conjunctivitis. Apply gently with cotton.",
+        "diseases": "Eye infections, Conjunctivitis, Eye strain"
+      }
+    ]
   },
   {
     "id": 14,
@@ -30,7 +108,33 @@
     "type": "Medicinal",
     "benefits": "Promotes sleep, calming properties, aids digestion.",
     "care": "Full sun, well-draining soil, moderate watering.",
-    "image": "HerbalGuardian/images/chamomile.png"
+    "image": "HerbalGuardian/images/chamomile.png",
+    "medicines": [
+      {
+        "type": "Tea",
+        "ingredients": "1-2 tsp dried chamomile flowers, 1 cup hot water, honey (optional)",
+        "instructions": "Steep flowers in hot water for 5-10 minutes. Strain and drink before bed. Calms nerves and aids sleep.",
+        "diseases": "Insomnia, Anxiety, Stress"
+      },
+      {
+        "type": "Compress",
+        "ingredients": "Steeped chamomile tea, clean cloth",
+        "instructions": "Soak cloth in cooled tea, apply to skin for 10-15 minutes. Soothes irritated skin or eyes.",
+        "diseases": "Skin irritation, Eye inflammation, Sunburn"
+      },
+      {
+        "type": "Bath Soak",
+        "ingredients": "Chamomile tea bags or flowers, warm bath water",
+        "instructions": "Add steeped chamomile to bath water. Soak for 15-20 minutes. Relaxes muscles and soothes skin.",
+        "diseases": "Muscle tension, Eczema, Psoriasis"
+      },
+      {
+        "type": "Digestive Tincture",
+        "ingredients": "Dried chamomile flowers, alcohol or glycerin",
+        "instructions": "Fill jar with flowers, cover with alcohol. Steep 4-6 weeks, strain. Take 20-30 drops for digestive upset.",
+        "diseases": "Indigestion, Gas, Colic"
+      }
+    ]
   },
   {
     "id": 1,
@@ -38,7 +142,19 @@
     "type": "Medicinal",
     "benefits": "Boosts immunity, reduces stress, helps cough and cold.",
     "care": "Requires 4-6 hours of sunlight, moderate watering, well-drained soil.",
-    "image": "HerbalGuardian/images/tulsi.png"
+    "image": "HerbalGuardian/images/tulsi.png",
+    "medicines": [
+      {
+        "type": "Tea",
+        "ingredients": "5-10 fresh tulsi leaves, 1 cup water, honey (optional)",
+        "instructions": "Boil leaves in water for 5 minutes. Strain and drink warm. Boosts immunity and reduces stress."
+      },
+      {
+        "type": "Kadha (Decoction)",
+        "ingredients": "Tulsi leaves, ginger, black pepper, honey",
+        "instructions": "Boil ingredients together, simmer for 10 minutes. Drink warm. Helps with cough and cold."
+      }
+    ]
   },
   {
     "id": 2,
@@ -46,7 +162,19 @@
     "type": "Medicinal",
     "benefits": "Natural antiseptic, purifies blood, pest repellent.",
     "care": "Grows in dry climate, minimal watering once established.",
-    "image": "HerbalGuardian/images/neem.png"
+    "image": "HerbalGuardian/images/neem.png",
+    "medicines": [
+      {
+        "type": "Oil",
+        "ingredients": "Neem leaves, sesame or coconut oil",
+        "instructions": "Infuse leaves in oil for 2-3 weeks in sun. Strain and apply to skin for acne or infections."
+      },
+      {
+        "type": "Paste",
+        "ingredients": "Neem leaves, water",
+        "instructions": "Grind leaves into paste, apply to affected skin. Wash off after 20 minutes. Treats skin conditions."
+      }
+    ]
   },
   {
     "id": 3,
@@ -54,7 +182,19 @@
     "type": "Cosmetic",
     "benefits": "Soothes skin, aids wound healing, digestive support.",
     "care": "Bright indirect light, water sparingly.",
-    "image": "HerbalGuardian/images/Aloe Vera.png"
+    "image": "HerbalGuardian/images/Aloe Vera.png",
+    "medicines": [
+      {
+        "type": "Gel",
+        "ingredients": "Fresh aloe vera leaf",
+        "instructions": "Cut leaf, extract gel, apply directly to skin. Heals burns, wounds, and moisturizes."
+      },
+      {
+        "type": "Juice",
+        "ingredients": "Aloe vera gel, water",
+        "instructions": "Blend gel with water, drink diluted. Supports digestion and detoxification."
+      }
+    ]
   },
   {
     "id": 4,
@@ -62,7 +202,19 @@
     "type": "Edible",
     "benefits": "Aids digestion, fresh aroma, culinary herb.",
     "care": "Partial shade, regular watering, can be invasive.",
-    "image": "HerbalGuardian/images/Mint.png"
+    "image": "HerbalGuardian/images/Mint.png",
+    "medicines": [
+      {
+        "type": "Tea",
+        "ingredients": "Fresh mint leaves, 1 cup hot water, honey (optional)",
+        "instructions": "Steep leaves in hot water for 5 minutes. Strain and drink. Soothes stomach and freshens breath."
+      },
+      {
+        "type": "Infusion",
+        "ingredients": "Mint leaves, olive oil",
+        "instructions": "Infuse leaves in oil for 2 weeks. Use as a topical rub for headaches or muscle pain."
+      }
+    ]
   },
   {
     "id": 5,
