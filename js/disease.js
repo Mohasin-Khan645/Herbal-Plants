@@ -154,7 +154,6 @@ async function analyze(){
     <div class="mt-2"><strong>Treatment:</strong> ${pred.treatment}</div>
     <div><strong>Prevention:</strong> ${pred.prevention}</div>
   `;
-
   // similar diseases - only show if it's a valid plant disease
   if (pred.disease !== 'Invalid Image' && pred.disease !== 'Analysis Failed') {
     const matches = SIMILAR.filter(d => d.name.toLowerCase().includes(pred.disease.split(' ')[0].toLowerCase()));
