@@ -5,7 +5,7 @@
   .bg-gradient-green { background: linear-gradient(90deg,var(--green-1),var(--green-2)); }
   .hero {
     min-height: 70vh;
-    background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)), url('../images/banner.jpg') center/cover no-repeat fixed;
+    background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)), url('../images/Tulsi.png') center/cover no-repeat fixed;
     position: relative;
   }
   .hero .ai-help { position: absolute; right: 16px; bottom: 16px; border-radius: 999px; }
